@@ -4,3 +4,16 @@
 // Authors: Jon Agirre & Iraia Agirre, 2019
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
+
+#include "cpu.h"
+
+void set_min_clockspeed ()
+{
+  gp_setCpuspeed(133);
+}
+
+void init_clock ()
+{
+  gp_initRTC();
+  gp_clearRTC();
+}
