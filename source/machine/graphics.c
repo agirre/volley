@@ -7,11 +7,9 @@
 
 #include "graphics.h"
 
-int x;
-int swapper=0;
-int spritex=-150;
-int framerate=0;
-int refreshrate=0;
+int swapper;
+int framerate;
+int refreshrate;
 
 char buffer[64];
 u16 *framebuffer[2];
@@ -35,7 +33,7 @@ void init_graphics ( )
 
   sprintf(buffer, "Framerate:         ");
 
-  refreshrate = gp_initFramebuffer(framebuffer[0],16,85);
+  refreshrate = gp_initFramebufferN(framebuffer[0],16,85);
 }
 
 void draw_framerate ( )
@@ -47,15 +45,18 @@ void draw_framerate ( )
     gp_clearRTC();
   }
 
-  gp_drawString ( 10, 230, 20, buffer, 0x0000, framebuffer[swapper] );
+  gp_drawString ( 10, 220, 20, buffer, 0x0000, framebuffer[swapper] );
 }
 
-void draw_background ( )
+void draw_background ( int mode )
 {
   swap_screen();
   gp_clearFramebuffer16 ( framebuffer[swapper], 0xffff ); // very very fast asm, faster than memset
 
-  gp_drawSpriteH  ( (u16*)background_a_bin, 0, 0, framebuffer[swapper] );
+  if ( mode == 0 )
+    gp_drawSpriteH  ( (u16*)background_a_bin, 0, 0, framebuffer[swapper] );
+  else
+    gp_drawSpriteH  ( (u16*)background_b_bin, 0, 0, framebuffer[swapper] );
 
   framerate++;
 }

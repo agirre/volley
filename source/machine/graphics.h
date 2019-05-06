@@ -11,9 +11,16 @@
 #include <stdio.h>
 #include "gp32.h"
 #include "background_a_bin.h"
+#include "background_b_bin.h"
+#include "ball_bin.h"
+#include "font_bin.h"
+#include "player_1_bin.h"
+#include "player_2_bin.h"
+
+extern short gp_initFramebufferN(void *add,u16 bitmode,u16 refreshrate);
 
 void init_graphics   ();
-void draw_background ();
+void draw_background ( int mode );
 void draw_framerate  ();
 
 #endif

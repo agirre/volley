@@ -5,20 +5,26 @@
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
 #include <stdlib.h>
+#include "machine/controllers.h"
 #include "machine/graphics.h"
 #include "machine/sound.h"
 #include "machine/cpu.h"
 
+int game_mode;
+
 int main ()
 {
-  set_min_clockspeed();
-  init_clock();
-  init_graphics();
+  game_mode = 0; // single player, background 'A'
+  set_min_clockspeed ( ); // lower clockspeed = longer battery life on portables
+  init_clock ( );
+  init_graphics ( );
 
   while (1)
   {
-    draw_background();
-    draw_framerate();
+    if ( joy_1_select() )
+      game_mode = ( game_mode ? 0 : 1 );
+    draw_background ( game_mode );
+    draw_framerate ( );
   }
 
 }
