@@ -1,7 +1,7 @@
 // A very simple videogame project to get my daughter started with coding
 // for bare-metal platforms. I shall try and keep all machine-dependent source
 // together and separate so we can port the project 'easily'
-// Authors: Jon Agirre & Iraia Agirre, 2019
+// Authors: Iraia Agirre, Saioa Urresti & Jon Agirre, 2019
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
 
@@ -48,10 +48,12 @@ void draw_framerate ( )
   gp_drawString ( 10, 220, 20, buffer, 0x0000, framebuffer[swapper] );
 }
 
+// this function has to be called before the other drawing operations
+// as it swaps the screen and clears the framebuffer
 void draw_background ( int mode )
 {
   swap_screen();
-  gp_clearFramebuffer16 ( framebuffer[swapper], 0xffff ); // very very fast asm, faster than memset
+  gp_clearFramebuffer16 ( framebuffer[swapper], 0xFFFF ); // very very fast asm, faster than memset
 
   if ( mode == 0 )
     gp_drawSpriteH  ( (u16*)background_a_bin, 0, 0, framebuffer[swapper] );
@@ -59,4 +61,14 @@ void draw_background ( int mode )
     gp_drawSpriteH  ( (u16*)background_b_bin, 0, 0, framebuffer[swapper] );
 
   framerate++;
+}
+
+void draw_player_1 ( )
+{
+  gp_drawTiled16 ( (u16*)player_1_bin, 0xF83E, 45, 0, 30, 170, framebuffer[swapper]);
+}
+
+void draw_player_2 ( )
+{
+  gp_drawTiled16 ( (u16*)player_2_bin, 0xF83E, 45, 0, 250, 170, framebuffer[swapper]);
 }
