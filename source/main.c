@@ -18,11 +18,19 @@ int main ()
   set_min_clockspeed ( ); // lower clockspeed = longer battery life on portables
   init_clock ( );
   init_graphics ( );
+  init_gamepad ( gamepad_1 );
+  init_gamepad ( gamepad_2 );
 
   while ( true )
   {
-    if ( joy_1_select() )
+    bool select_pressed = joy_1_select();
+    if ( select_pressed && !gamepad_1.select_button )
+      gamepad_1.select_button = true;
+    else if ( !select_pressed && gamepad_1.select_button )
+    {
       game_mode = ( game_mode ? 0 : 1 );
+      gamepad_1.select_button = false;
+    }
     draw_background ( game_mode );
     draw_player_1 ( );
     draw_player_2 ( );

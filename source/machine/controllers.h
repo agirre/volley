@@ -8,6 +8,23 @@
 // stdbool requires C99
 #include <stdbool.h>
 
+struct controls_set
+{
+  bool l_button;
+  bool r_button;
+  bool a_button;
+  bool b_button;
+  bool start_button;
+  bool select_button;
+  bool joy_up;
+  bool joy_down;
+  bool joy_left;
+  bool joy_right;
+};
+
+struct controls_set gamepad_1;
+struct controls_set gamepad_2;
+
 bool joy_1_L      ( );
 bool joy_1_R      ( );
 bool joy_1_A      ( );
@@ -29,3 +46,5 @@ bool joy_2_left   ( );
 bool joy_2_right  ( );
 bool joy_2_start  ( );
 bool joy_2_select ( );
+
+void init_gamepad ( struct controls_set gamepad );

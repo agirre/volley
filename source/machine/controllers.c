@@ -8,7 +8,6 @@
 #include "controllers.h"
 #include "gp32.h"
 
-
 bool joy_1_L ( )
 {
   return (gp_getButton() & BUTTON_L);
@@ -107,4 +106,18 @@ bool joy_2_start  ( )
 bool joy_2_select ( )
 {
   return false;
+}
+
+void init_gamepad ( struct controls_set gamepad )
+{
+  gamepad.l_button = false;
+  gamepad.r_button = false;
+  gamepad.a_button = false;
+  gamepad.b_button = false;
+  gamepad.start_button = false;
+  gamepad.select_button = false;
+  gamepad.joy_up = false;
+  gamepad.joy_down = false;
+  gamepad.joy_left = false;
+  gamepad.joy_right = false;
 }
