@@ -23,7 +23,7 @@ TITLE	  :=	gwvolley_32
 #---------------------------------------------------------------------------------
 TARGET		:=	gwvolley_32
 BUILD		  :=	build
-SOURCES		:=	source source/machine source/sounds source/sprites/320x240
+SOURCES		:=	source/sprites/320x240 source/sounds source/machine source
 INCLUDES	:=	include
 
 #---------------------------------------------------------------------------------

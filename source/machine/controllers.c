@@ -10,17 +10,20 @@
 
 bool joy_1_L ( )
 {
-  return (gp_getButton() & BUTTON_L);
+  gamepad_1.l_button = gp_getButton() & BUTTON_L;
+  return ( gamepad_1.l_button );
 }
 
 bool joy_1_R ( )
 {
-  return (gp_getButton() & BUTTON_R);
+  gamepad_1.r_button = gp_getButton() & BUTTON_R;
+  return ( gamepad_1.r_button );
 }
 
 bool joy_1_A ( )
 {
-  return (gp_getButton() & BUTTON_A);
+  gamepad_1.a_button = gp_getButton() & BUTTON_A;
+  return ( gamepad_1.a_button );
 }
 
 bool joy_1_B ( )

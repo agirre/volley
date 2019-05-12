@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.DS_store
+build
+gwvolley_32.fxe

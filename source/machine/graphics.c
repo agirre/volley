@@ -56,19 +56,19 @@ void draw_background ( int mode )
   gp_clearFramebuffer16 ( framebuffer[swapper], 0xFFFF ); // very very fast asm, faster than memset
 
   if ( mode == 0 )
-    gp_drawSpriteH  ( (u16*)background_a_bin, 0, 0, framebuffer[swapper] );
+    gp_drawSpriteH  ( (u16*)assets_background_a_bin, 0, 0, framebuffer[swapper] );
   else
-    gp_drawSpriteH  ( (u16*)background_b_bin, 0, 0, framebuffer[swapper] );
+    gp_drawSpriteH  ( (u16*)assets_background_b_bin, 0, 0, framebuffer[swapper] );
 
   framerate++;
 }
 
 void draw_player_1 ( )
 {
-  gp_drawTiled16 ( (u16*)player_1_bin, 0xF83E, 45, 0, 30, 170, framebuffer[swapper]);
+  gp_drawTiled16 ( (u16*)assets_player_1_bin, 0xF83E, 45, 0, 30, 170, framebuffer[swapper]);
 }
 
 void draw_player_2 ( )
 {
-  gp_drawTiled16 ( (u16*)player_2_bin, 0xF83E, 45, 0, 250, 170, framebuffer[swapper]);
+  gp_drawTiled16 ( (u16*)assets_player_2_bin, 0xF83E, 45, 0, 250, 170, framebuffer[swapper]);
 }
