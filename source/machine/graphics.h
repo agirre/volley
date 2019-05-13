@@ -14,15 +14,20 @@
 #include "assets_background_b_bin.h"
 #include "assets_ball_bin.h"
 #include "assets_font_bin.h"
-#include "assets_player_1_bin.h"
-#include "assets_player_2_bin.h"
 
+int swapper;
+int framerate;
+int refreshrate;
+
+char buffer[64];
+u16 *framebuffer[2];
+
+// We have a Korean GP32 (original) and a BLU model (UK), both with Samsung LCD
+// so don't want to be using a hotkey to turn off Taiwanese LCD code every time
 extern short gp_initFramebufferN(void *add,u16 bitmode,u16 refreshrate);
 
 void init_graphics   ();
 void draw_background ( int mode );
 void draw_framerate  ();
-void draw_player_1   ();
-void draw_player_2   ();
 
 #endif

@@ -5,6 +5,9 @@
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
 
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
 // stdbool requires C99
 #include <stdbool.h>
 
@@ -47,4 +50,6 @@ bool joy_2_right  ( );
 bool joy_2_start  ( );
 bool joy_2_select ( );
 
-void init_gamepad ( struct controls_set gamepad );
+void init_gamepad ( struct controls_set * gamepad );
+
+#endif

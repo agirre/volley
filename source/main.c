@@ -5,6 +5,7 @@
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
 #include <stdlib.h>
+#include "characters.h"
 #include "machine/controllers.h"
 #include "machine/graphics.h"
 #include "machine/sound.h"
@@ -18,8 +19,8 @@ int main ()
   set_min_clockspeed ( ); // lower clockspeed = longer battery life on portables
   init_clock ( );
   init_graphics ( );
-  init_gamepad ( gamepad_1 );
-  init_gamepad ( gamepad_2 );
+  init_gamepad ( &gamepad_1 );
+  init_gamepad ( &gamepad_2 );
 
   while ( true )
   {

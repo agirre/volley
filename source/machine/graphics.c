@@ -7,12 +7,6 @@
 
 #include "graphics.h"
 
-int swapper;
-int framerate;
-int refreshrate;
-
-char buffer[64];
-u16 *framebuffer[2];
 
 inline void swap_screen ( )
 {
@@ -61,14 +55,4 @@ void draw_background ( int mode )
     gp_drawSpriteH  ( (u16*)assets_background_b_bin, 0, 0, framebuffer[swapper] );
 
   framerate++;
-}
-
-void draw_player_1 ( )
-{
-  gp_drawTiled16 ( (u16*)assets_player_1_bin, 0xF83E, 45, 0, 30, 170, framebuffer[swapper]);
-}
-
-void draw_player_2 ( )
-{
-  gp_drawTiled16 ( (u16*)assets_player_2_bin, 0xF83E, 45, 0, 250, 170, framebuffer[swapper]);
 }

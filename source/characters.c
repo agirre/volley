@@ -6,3 +6,13 @@
 //
 
 #include "characters.h"
+
+void draw_player_1 ( )
+{
+  gp_drawTiled16 ( (u16*)assets_player_1_bin, 0xF83E, 45, 0, 30, 170, framebuffer[swapper]);
+}
+
+void draw_player_2 ( )
+{
+  gp_drawTiled16 ( (u16*)assets_player_2_bin, 0xF83E, 45, 0, 250, 170, framebuffer[swapper]);
+}

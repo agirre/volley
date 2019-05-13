@@ -7,3 +7,9 @@
 
 #include "machine/controllers.h"
 #include "machine/graphics.h"
+
+#include "assets_player_1_bin.h"
+#include "assets_player_2_bin.h"
+
+void draw_player_1   ();
+void draw_player_2   ();

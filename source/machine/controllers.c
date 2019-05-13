@@ -28,27 +28,32 @@ bool joy_1_A ( )
 
 bool joy_1_B ( )
 {
-  return (gp_getButton() & BUTTON_B);
+  gamepad_1.b_button = gp_getButton() & BUTTON_B;
+  return ( gamepad_1.b_button );
 }
 
 bool joy_1_up     ( )
 {
-  return (gp_getButton() & BUTTON_UP);
+  gamepad_1.joy_up = gp_getButton() & BUTTON_UP;
+  return ( gamepad_1.joy_up );
 }
 
 bool joy_1_down   ( )
 {
-  return (gp_getButton() & BUTTON_DOWN);
+  gamepad_1.joy_down = gp_getButton() & BUTTON_DOWN;
+  return ( gamepad_1.joy_down );
 }
 
 bool joy_1_left   ( )
 {
-  return (gp_getButton() & BUTTON_LEFT);
+  gamepad_1.joy_left = gp_getButton() & BUTTON_LEFT;
+  return ( gamepad_1.joy_left );
 }
 
 bool joy_1_right  ( )
 {
-  return (gp_getButton() & BUTTON_RIGHT);
+  gamepad_1.joy_right = gp_getButton() & BUTTON_RIGHT;
+  return ( gamepad_1.joy_right );
 }
 
 bool joy_1_start  ( )
@@ -111,16 +116,16 @@ bool joy_2_select ( )
   return false;
 }
 
-void init_gamepad ( struct controls_set gamepad )
+void init_gamepad ( struct controls_set * gamepad )
 {
-  gamepad.l_button = false;
-  gamepad.r_button = false;
-  gamepad.a_button = false;
-  gamepad.b_button = false;
-  gamepad.start_button = false;
-  gamepad.select_button = false;
-  gamepad.joy_up = false;
-  gamepad.joy_down = false;
-  gamepad.joy_left = false;
-  gamepad.joy_right = false;
+  gamepad->l_button = false;
+  gamepad->r_button = false;
+  gamepad->a_button = false;
+  gamepad->b_button = false;
+  gamepad->start_button = false;
+  gamepad->select_button = false;
+  gamepad->joy_up = false;
+  gamepad->joy_down = false;
+  gamepad->joy_left = false;
+  gamepad->joy_right = false;
 }
