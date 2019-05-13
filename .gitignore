@@ -51,6 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+source/sprites/320x240/.DS_Store
+source/sprites/.DS_Store
 .DS_store
 build
 gwvolley_32.fxe
