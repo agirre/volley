@@ -8,10 +8,11 @@
 #ifndef CPU_H
 #define CPU_H
 
+
 #include <stdio.h>
 #include "gp32.h"
 
-void set_min_clockspeed ();
+void set_min_clockspeed();
 void init_clock();
 
 #endif

@@ -7,52 +7,47 @@
 
 #include "graphics.h"
 
-
-inline void swap_screen ( )
-{
-   gp_setFramebuffer ( framebuffer[swapper], 1 );
-   swapper++;
-   if ( swapper == 2 )
-    swapper=0;
+inline void swap_screen() {
+  gp_setFramebuffer(framebuffer[swapper], 1);
+  swapper++;
+  if (swapper == 2)
+    swapper = 0;
 }
 
-void init_graphics ( )
-{
+void init_graphics() {
   swapper = 0;
   framerate = 0;
   refreshrate = 0;
 
-  framebuffer[0] = (u16*) FRAMEBUFFER1;
-  framebuffer[1] = (u16*) FRAMEBUFFER2;
+  framebuffer[0] = (u16 *)FRAMEBUFFER1;
+  framebuffer[1] = (u16 *)FRAMEBUFFER2;
 
   sprintf(buffer, "Framerate:         ");
 
-  refreshrate = gp_initFramebufferN(framebuffer[0],16,85);
+  refreshrate = gp_initFramebufferN(framebuffer[0], 16, 85);
 }
 
-void draw_framerate ( )
-{
-  if (gp_getRTC() > 63)
-  {
-    sprintf(buffer,"Framerate: %d,%d    ", framerate, refreshrate);
-    framerate=0;
+void draw_framerate() {
+  if (gp_getRTC() > 63) {
+    sprintf(buffer, "Framerate: %d,%d    ", framerate, refreshrate);
+    framerate = 0;
     gp_clearRTC();
   }
 
-  gp_drawString ( 10, 220, 20, buffer, 0x0000, framebuffer[swapper] );
+  gp_drawString(15, 230, 20, buffer, 0x0000, framebuffer[swapper]);
 }
 
 // this function has to be called before the other drawing operations
 // as it swaps the screen and clears the framebuffer
-void draw_background ( int mode )
-{
+void draw_background(int mode) {
   swap_screen();
-  gp_clearFramebuffer16 ( framebuffer[swapper], 0xFFFF ); // very very fast asm, faster than memset
+  gp_clearFramebuffer16(framebuffer[swapper],
+                        0xFFFF); // very very fast asm, faster than memset
 
-  if ( mode == 0 )
-    gp_drawSpriteH  ( (u16*)assets_background_a_bin, 0, 0, framebuffer[swapper] );
+  if (mode == 0)
+    gp_drawSpriteH((u16 *)assets_background_a_bin, 0, 0, framebuffer[swapper]);
   else
-    gp_drawSpriteH  ( (u16*)assets_background_b_bin, 0, 0, framebuffer[swapper] );
+    gp_drawSpriteH((u16 *)assets_background_b_bin, 0, 0, framebuffer[swapper]);
 
   framerate++;
 }

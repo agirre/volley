@@ -11,5 +11,22 @@
 #include "assets_player_1_bin.h"
 #include "assets_player_2_bin.h"
 
-void draw_player_1   ();
-void draw_player_2   ();
+struct character {
+  int x_pos;
+  int y_pos;
+  int animation_index;
+  int animation_counter;
+};
+
+struct character player_1;
+struct character player_2;
+
+inline void init_player( struct character * player, int n_player ) {
+  player->x_pos = n_player ? 250 : 30;
+  player->y_pos = 170;
+  player->animation_index = 0;
+  player->animation_counter = 4;
+}
+
+void draw_player_1( struct controls_set *gamepad );
+void draw_player_2();

@@ -8,6 +8,11 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+#define P1_LEFT_LIMIT 0
+#define P1_RIGHT_LIMIT 110
+#define P2_RIGHT_LIMIT 300
+#define P2_LEFT_LIMIT 190
+
 #include <stdio.h>
 #include "gp32.h"
 #include "assets_background_a_bin.h"
@@ -24,10 +29,10 @@ u16 *framebuffer[2];
 
 // We have a Korean GP32 (original) and a BLU model (UK), both with Samsung LCD
 // so don't want to be using a hotkey to turn off Taiwanese LCD code every time
-extern short gp_initFramebufferN(void *add,u16 bitmode,u16 refreshrate);
+extern short gp_initFramebufferN(void *add, u16 bitmode, u16 refreshrate);
 
-void init_graphics   ();
-void draw_background ( int mode );
-void draw_framerate  ();
+void init_graphics();
+void draw_background(int mode);
+void draw_framerate();
 
 #endif

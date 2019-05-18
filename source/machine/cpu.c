@@ -9,13 +9,9 @@
 
 // Lower clockspeed, longer battery life on GP32, GP2x, etc
 // Ignored on Dreamcast, i686 or RPi versions
-void set_min_clockspeed ()
-{
-  gp_setCpuspeed ( 133 );
-}
+void set_min_clockspeed() { gp_setCpuspeed(133); }
 
-void init_clock ()
-{
+void init_clock() {
   gp_initRTC();
   gp_clearRTC();
 }

@@ -4,38 +4,35 @@
 // Authors: Iraia Agirre, Saioa Urresti & Jon Agirre, 2019
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
-#include <stdlib.h>
 #include "characters.h"
 #include "machine/controllers.h"
+#include "machine/cpu.h"
 #include "machine/graphics.h"
 #include "machine/sound.h"
-#include "machine/cpu.h"
+#include <stdlib.h>
 
 int game_mode;
 
-int main ()
-{
-  game_mode = 0; // single player, background 'A'
-  set_min_clockspeed ( ); // lower clockspeed = longer battery life on portables
-  init_clock ( );
-  init_graphics ( );
-  init_gamepad ( &gamepad_1 );
-  init_gamepad ( &gamepad_2 );
+int main() {
+  game_mode = 0;        // single player, background 'A'
+  set_min_clockspeed(); // lower clockspeed = longer battery life on portables
+  init_clock();
+  init_graphics();
+  init_gamepad(&gamepad_1);
+  init_gamepad(&gamepad_2);
+  init_player(&player_1, 0);
+  init_player(&player_2, 1);
 
-  while ( true )
-  {
-    bool select_pressed = joy_1_select();
-    if ( select_pressed && !gamepad_1.select_button )
-      gamepad_1.select_button = true;
-    else if ( !select_pressed && gamepad_1.select_button )
-    {
-      game_mode = ( game_mode ? 0 : 1 );
-      gamepad_1.select_button = false;
+  while (true) {
+    if ( joy_1_select() ) {
+      game_mode = (game_mode ? 0 : 1);
+      init_player(&player_1, 0);
+      init_player(&player_2, 1);
     }
-    draw_background ( game_mode );
-    draw_player_1 ( );
-    draw_player_2 ( );
-    draw_framerate ( );
+    update_gamepad(&gamepad_1, 0); // 0 is gamepad 1
+    draw_background(game_mode);
+    draw_player_1(&gamepad_1);
+    draw_player_2();
+    draw_framerate();
   }
-
 }
