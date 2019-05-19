@@ -21,23 +21,23 @@ void draw_player_1(struct controls_set *gamepad) {
   if (!gamepad->joy_left && !gamepad->joy_right) {
     player_1.animation_index = 0;
     gp_drawTiled16((u16 *)assets_player_1_bin, 0xF83E, 43,
-                   player_1.animation_index, player_1.x_pos, 170,
+                   player_1.animation_index, player_1.x_pos, GROUND_LEVEL,
                    framebuffer[swapper]);
   } else {
     if (--player_1.animation_counter < 1) {
-      player_1.animation_counter = 6;
+      player_1.animation_counter = ANIMATION_DELAY;
       if (player_1.animation_index == 3)
         player_1.animation_index = 1;
       else
         player_1.animation_index++;
     }
     gp_drawTiled16((u16 *)assets_player_1_bin, 0xF83E, 43,
-                   player_1.animation_index, player_1.x_pos, 170,
+                   player_1.animation_index, player_1.x_pos, GROUND_LEVEL,
                    framebuffer[swapper]);
   }
 }
 
 void draw_player_2() {
-  gp_drawTiled16((u16 *)assets_player_2_bin, 0xF83E, 43, 0, 250, 170,
+  gp_drawTiled16((u16 *)assets_player_2_bin, 0xF83E, 43, 0, 250, GROUND_LEVEL,
                  framebuffer[swapper]);
 }

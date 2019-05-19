@@ -11,6 +11,8 @@
 #include "assets_player_1_bin.h"
 #include "assets_player_2_bin.h"
 
+#define ANIMATION_DELAY 6
+
 struct character {
   int x_pos;
   int y_pos;
@@ -22,10 +24,10 @@ struct character player_1;
 struct character player_2;
 
 inline void init_player( struct character * player, int n_player ) {
-  player->x_pos = n_player ? 250 : 30;
-  player->y_pos = 170;
+  player->x_pos = n_player ? PLAYER_2_HOME : PLAYER_1_HOME;
+  player->y_pos = GROUND_LEVEL;
   player->animation_index = 0;
-  player->animation_counter = 6;
+  player->animation_counter = ANIMATION_DELAY;
 }
 
 void draw_player_1( struct controls_set *gamepad );

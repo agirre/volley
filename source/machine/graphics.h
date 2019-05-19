@@ -8,10 +8,13 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#define P1_LEFT_LIMIT 0
+#define P1_LEFT_LIMIT  0
 #define P1_RIGHT_LIMIT 110
 #define P2_RIGHT_LIMIT 300
-#define P2_LEFT_LIMIT 190
+#define P2_LEFT_LIMIT  190
+#define GROUND_LEVEL   170
+#define PLAYER_1_HOME  30
+#define PLAYER_2_HOME  250
 
 #include <stdio.h>
 #include "gp32.h"
