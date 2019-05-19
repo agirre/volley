@@ -25,7 +25,7 @@ inline void init_player( struct character * player, int n_player ) {
   player->x_pos = n_player ? 250 : 30;
   player->y_pos = 170;
   player->animation_index = 0;
-  player->animation_counter = 4;
+  player->animation_counter = 6;
 }
 
 void draw_player_1( struct controls_set *gamepad );

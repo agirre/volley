@@ -25,7 +25,7 @@ void draw_player_1(struct controls_set *gamepad) {
                    framebuffer[swapper]);
   } else {
     if (--player_1.animation_counter < 1) {
-      player_1.animation_counter = 4;
+      player_1.animation_counter = 6;
       if (player_1.animation_index == 3)
         player_1.animation_index = 1;
       else
