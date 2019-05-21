@@ -11,7 +11,7 @@
 #include "assets_player_1_bin.h"
 #include "assets_player_2_bin.h"
 
-#define ANIMATION_DELAY 6
+#define ANIMATION_DELAY 3
 
 struct character {
   int x_pos;

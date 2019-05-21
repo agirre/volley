@@ -10,13 +10,13 @@
 void draw_player_1(struct controls_set *gamepad) {
 
   if (gamepad->joy_left)
-    player_1.x_pos = (player_1.x_pos - 3 <= P1_LEFT_LIMIT)
+    player_1.x_pos = (player_1.x_pos - 4 <= P1_LEFT_LIMIT)
                          ? P1_LEFT_LIMIT
-                         : player_1.x_pos - 3;
+                         : player_1.x_pos - 4;
   if (gamepad->joy_right)
-    player_1.x_pos = (player_1.x_pos + 3 >= P1_RIGHT_LIMIT)
+    player_1.x_pos = (player_1.x_pos + 4 >= P1_RIGHT_LIMIT)
                          ? P1_RIGHT_LIMIT
-                         : player_1.x_pos + 3;
+                         : player_1.x_pos + 4;
 
   if (!gamepad->joy_left && !gamepad->joy_right) {
     player_1.animation_index = 0;
@@ -26,7 +26,7 @@ void draw_player_1(struct controls_set *gamepad) {
   } else {
     if (--player_1.animation_counter < 1) {
       player_1.animation_counter = ANIMATION_DELAY;
-      if (player_1.animation_index == 3)
+      if (player_1.animation_index == 6)
         player_1.animation_index = 1;
       else
         player_1.animation_index++;
