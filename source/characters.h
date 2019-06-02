@@ -5,11 +5,7 @@
 // Licence: GPL v3.0 (https://www.gnu.org/licenses/gpl.html)
 //
 
-#include "machine/controllers.h"
 #include "machine/graphics.h"
-
-#include "assets_player_1_bin.h"
-#include "assets_player_2_bin.h"
 
 #define ANIMATION_DELAY 3
 
@@ -30,5 +26,5 @@ inline void init_player( struct character * player, int n_player ) {
   player->animation_counter = ANIMATION_DELAY;
 }
 
-void draw_player_1( struct controls_set *gamepad );
-void draw_player_2();
+void move_player_1( struct controls_set *gamepad );
+void move_player_2();

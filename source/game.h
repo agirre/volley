@@ -7,15 +7,15 @@
 
 #include "machine/controllers.h"
 #include "machine/graphics.h"
+#define GAME_OVER 15
 
-struct one_ball {
-  int x_pos;
-  int y_pos;
-  int animation_index;
-  int animation_counter;
+struct the_game {
+  int score_player_1;
+  int score_player_2;
+  bool finished;
 };
 
-struct one_ball ball;
+struct the_game game;
 
-void init_ball (bool on_the_left);
-void move_ball ();
+void update_scores ( int scored_player );
+void init_scores ( );

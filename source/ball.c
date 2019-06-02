@@ -6,3 +6,20 @@
 //
 
 #include "ball.h"
+
+void init_ball (bool on_the_left) {
+  if (on_the_left == true)
+    ball.x_pos = PLAYER_1_HOME;
+  else
+    ball.x_pos = PLAYER_2_HOME;
+
+  ball.y_pos = BALL_Y_HOME;
+  ball.animation_index = 0;
+
+  draw_ball (ball.animation_index, ball.x_pos, ball.y_pos);
+}
+
+void move_ball () {
+  (ball.animation_index >= 25) ? ball.animation_index = 0 : ball.animation_index++;
+  draw_ball (ball.animation_index, ball.x_pos, ball.y_pos);
+}

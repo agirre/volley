@@ -51,3 +51,25 @@ void draw_background(int mode) {
 
   framerate++;
 }
+
+void draw_player(int player, int animation_index, int x, int y) {
+  if (player == 1)
+    gp_drawTiled16((u16 *)assets_player_1_bin, 0xF83E, 43,
+                   animation_index, x, y, framebuffer[swapper]);
+  else
+    gp_drawTiled16((u16 *)assets_player_2_bin, 0xF83E, 43,
+                 animation_index, x, y, framebuffer[swapper]);
+}
+
+void draw_ball (int animation_index, int x, int y) {
+  gp_drawTiled16((u16 *)assets_ball_bin, 0xF83E, 25,
+               animation_index, x, y, framebuffer[swapper]);
+}
+
+void draw_score (int score_player_1, int score_player_2) {
+  gp_drawTiled16((u16 *)assets_font_bin, 0xF83E, 18,
+               score_player_1, SCORE_X1_HOME, SCORE_Y_HOME, framebuffer[swapper]);
+
+  gp_drawTiled16((u16 *)assets_font_bin, 0xF83E, 18,
+               score_player_2, SCORE_X2_HOME, SCORE_Y_HOME, framebuffer[swapper]);
+}

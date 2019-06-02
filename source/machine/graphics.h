@@ -15,11 +15,18 @@
 #define GROUND_LEVEL   170
 #define PLAYER_1_HOME  30
 #define PLAYER_2_HOME  250
+#define BALL_Y_HOME    70
+#define SCORE_Y_HOME   10
+#define SCORE_X1_HOME  10
+#define SCORE_X2_HOME  250
 
 #include <stdio.h>
 #include "gp32.h"
+#include "controllers.h"
 #include "assets_background_a_bin.h"
 #include "assets_background_b_bin.h"
+#include "assets_player_1_bin.h"
+#include "assets_player_2_bin.h"
 #include "assets_ball_bin.h"
 #include "assets_font_bin.h"
 
@@ -37,5 +44,8 @@ extern short gp_initFramebufferN(void *add, u16 bitmode, u16 refreshrate);
 void init_graphics();
 void draw_background(int mode);
 void draw_framerate();
+void draw_player(int player, int animation_index, int x, int y);
+void draw_ball (int animation_index, int x, int y);
+void draw_score (int score_player_1, int score_player_2);
 
 #endif

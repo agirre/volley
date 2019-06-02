@@ -7,12 +7,10 @@
 
 #include "characters.h"
 
-void draw_player_1(struct controls_set *gamepad) {
-
+void move_player_1(struct controls_set *gamepad) {
   if (gamepad->joy_left)
-    player_1.x_pos = (player_1.x_pos - 4 <= P1_LEFT_LIMIT)
-                         ? P1_LEFT_LIMIT
-                         : player_1.x_pos - 4;
+    player_1.x_pos = (player_1.x_pos - 4 <= P1_LEFT_LIMIT) ? P1_LEFT_LIMIT
+                                                           : player_1.x_pos - 4;
   if (gamepad->joy_right)
     player_1.x_pos = (player_1.x_pos + 4 >= P1_RIGHT_LIMIT)
                          ? P1_RIGHT_LIMIT
@@ -20,9 +18,7 @@ void draw_player_1(struct controls_set *gamepad) {
 
   if (!gamepad->joy_left && !gamepad->joy_right) {
     player_1.animation_index = 0;
-    gp_drawTiled16((u16 *)assets_player_1_bin, 0xF83E, 43,
-                   player_1.animation_index, player_1.x_pos, GROUND_LEVEL,
-                   framebuffer[swapper]);
+
   } else {
     if (--player_1.animation_counter < 1) {
       player_1.animation_counter = ANIMATION_DELAY;
@@ -31,13 +27,13 @@ void draw_player_1(struct controls_set *gamepad) {
       else
         player_1.animation_index++;
     }
-    gp_drawTiled16((u16 *)assets_player_1_bin, 0xF83E, 43,
-                   player_1.animation_index, player_1.x_pos, GROUND_LEVEL,
-                   framebuffer[swapper]);
   }
+  draw_player(1, player_1.animation_index, player_1.x_pos, player_1.y_pos);
 }
 
-void draw_player_2() {
-  gp_drawTiled16((u16 *)assets_player_2_bin, 0xF83E, 43, 0, 250, GROUND_LEVEL,
-                 framebuffer[swapper]);
+void move_player_2() {
+  player_2.animation_index = 0;
+  player_2.x_pos = 250;
+  player_2.y_pos = GROUND_LEVEL;
+  draw_player(2, player_2.animation_index, player_2.x_pos, player_2.y_pos);
 }
