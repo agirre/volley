@@ -8,17 +8,26 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+#define TRANSPARENT    0xF83E
+
+#define BALL_SIZE      25
+#define PLAYER_SIZE    43
+#define FONT_SIZE      18
+
 #define P1_LEFT_LIMIT  0
 #define P1_RIGHT_LIMIT 110
 #define P2_RIGHT_LIMIT 300
 #define P2_LEFT_LIMIT  190
 #define GROUND_LEVEL   170
+
 #define PLAYER_1_HOME  30
 #define PLAYER_2_HOME  250
-#define BALL_Y_HOME    70
-#define SCORE_Y_HOME   10
-#define SCORE_X1_HOME  10
-#define SCORE_X2_HOME  250
+#define BALL_Y_HOME    130
+#define BALL_X1_HOME   PLAYER_1_HOME + BALL_SIZE
+#define BALL_X2_HOME   PLAYER_1_HOME - BALL_SIZE
+#define SCORE_Y_HOME   FONT_SIZE
+#define SCORE_X1_HOME  FONT_SIZE
+#define SCORE_X2_HOME  270
 
 #include <stdio.h>
 #include "gp32.h"

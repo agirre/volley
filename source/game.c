@@ -15,12 +15,12 @@ void update_scores ( int scored_player ) {
     if ( game.score_player_1 == GAME_OVER || game.score_player_1 == GAME_OVER )
       game.finished = true;
   }
-
-
+  draw_score(game.score_player_1, game.score_player_2);
 }
 
 void init_scores ( ) {
   game.score_player_1=0;
   game.score_player_2=0;
   game.finished = false;
+  draw_score(game.score_player_1, game.score_player_2);
 }
